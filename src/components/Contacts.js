@@ -1,33 +1,23 @@
 import React, { Component } from "react";
 import Contact from "./Contact";
-export class Contacts extends Component {
-  state = {
-    contacts: [
-      {
-        id: 1,
-        name: "arian",
-        email: "a@h.com",
-        phone: "049 433 333"
-      },
-      {
-        id: 2,
-        name: "maki",
-        email: "a@h.com",
-        phone: "049 433 333"
-      },
-      {
-        id: 3,
-        name: "baki",
-        email: "a@h.com",
-        phone: "049 433 333"
-      }
-    ]
-  };
+import { Consumer } from "../context";
 
+export class Contacts extends Component {
   render() {
-    return this.state.contacts.map(contact => (
-      <Contact key={contact.id} contact={contact} />
-    ));
+    return (
+      <Consumer>
+        {value => {
+          const { contacts } = value;
+          return (
+            <React.Fragment>
+              {contacts.map(contact => (
+                <Contact key={contact.id} contact={contact} />
+              ))}
+            </React.Fragment>
+          );
+        }}
+      </Consumer>
+    );
   }
 }
 
