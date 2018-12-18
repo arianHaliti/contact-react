@@ -1,7 +1,7 @@
 // rce
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Consumer } from "../context";
+import { Consumer } from "../../context";
 
 class Contact extends Component {
   state = {
@@ -48,7 +48,6 @@ class Contact extends Component {
   }
 }
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired,
-  deleteContact: PropTypes.func.isRequired
+  contact: PropTypes.object.isRequired
 };
 export default Contact;
